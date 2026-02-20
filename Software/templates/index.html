@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Syringes Robot App</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='code.js')}}"></script>
+</head>
+
+<body>
+    <h1>Multi-Syringes Robot Control</h1>
+    <div class="container">
+
+        <div class="layout-upper">
+
+            <section class="ui xy-ui">
+                <h2>Move Arm</h2>
+
+                <section class="xy-section">
+
+
+                    <section class="xy-button">
+                        <section class="xy-button-upper">
+                            <button data-xy="Y+">+Y</button>
+                        </section>
+
+                        <section class="xy-button-middle">
+                            <button data-xy="X-">-X</button>
+                            <button data-xy="X+">+X</button>
+                        </section>
+                        <section class="xy-button-lower">
+                            <button data-xy="Y-">-Y</button>
+                        </section>
+
+                    </section>
+
+                </section>
+            </section>
+
+            <section class="ui lift-ui">
+                <h2>Move Lift</h2>
+                <section class="lift-section">
+                    <section class="lift-button">
+                        <button data-lift="Z+">+Z</button>
+                        <button data-lift="Z-">-Z</button>
+                    </section>
+                </section>
+            </section>
+
+            <section class="ui syringes-ui">
+                <h2>Operate Syringes</h2>
+
+                <section class="syringes-section">
+
+                    <section class="syringes-body">
+                        <div class="syringes-upper">
+                            <div></div>
+                            <section class="pull">
+                                <input type="number" min="0.0" max="5.0" step="0.2" value="0.0" inputmode="decimal"
+                                    pattern="\\d*(\\.\\d+)?" class="syringe-spinbox" id="pullValue" data-spinbox="pull">
+                                <span class="unit">mL</span>
+                                <button class="syringe-button" id="pull" data-syringes="PULL">Pull</button>
+                            </section>
+                            <div></div>
+                            <div></div>
+                            <section class="push">
+                                <input type="number" min="0.0" max="0.0" step="0.2" value="0.0" class="syringe-spinbox"
+                                    id="pushValue" data-spinbox="push">
+                                <span class="unit">mL</span>
+                                <button class="syringe-button" id="push" data-syringes="PUSH">Push</button>
+                            </section>
+                            <section class="pushall">
+                                <button id="pushall" data-syringes="PUSHALL">Push All</button>
+                            </section>
+
+
+                        </div>
+
+                        <div class="syringes-lower">
+                            <section class="syringes-info">
+                                <div class="aspirated-text">
+                                    Aspirated volume
+                                </div>
+                                <div class="aspirated-colon">
+                                    :
+                                </div>
+                                <div class="aspirated-amount">
+                                    <span id="aspiratedValue">0.0</span>
+                                    <div class="aspirated-ml">
+                                        mL
+                                    </div>
+                                </div>
+                                <div class="remaining-text">
+                                    Remaining capacity
+                                </div>
+                                <div class="remaining-colon">
+                                    :
+                                </div>
+                                <div class="remaining-amount">
+                                    <span id="remainingValue">5.0</span>
+                                    <div class="remaining-ml">
+                                        mL
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                    </section>
+
+                </section>
+            </section>
+
+
+            <section class="img xy-img">
+                <img src="{{ url_for('static', filename='images/fig_xy.png')}}" alt="xy">
+            </section>
+            <section class="img lift-img">
+                <img src="{{ url_for('static', filename='images/fig_lift.png')}}" alt="lift">
+            </section>
+            <section class="img syringes-img">
+                <img src="{{ url_for('static', filename='images/fig_syringe.png')}}" alt="syringe">
+            </section>
+
+
+        </div>
+        <h2>Robot Response</h2>
+        <div class="layout-lower">
+            <div></div>
+            <section class="message-log">
+                <textarea id="messageLog" rows="8" readonly></textarea>
+            </section>
+            <section class="halt-button">
+                <button id="haltButton">Halt</button>
+            </section>
+        </div>
+
+    </div>
+</body>
+
+</html>

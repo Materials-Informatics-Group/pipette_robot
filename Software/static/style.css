@@ -1,0 +1,232 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+button {
+    width: fit-content;
+    height: fit-content;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #1e8eee;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #22228b;
+}
+
+img {
+    height: 260px;
+}
+
+h2 {
+    margin: 0.6em;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 12px 20px;
+}
+
+.layout-upper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.xy-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.xy-button,
+.xy-img {
+    flex: 1;
+}
+
+.xy-button {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+
+.img.xy-img {
+    max-width: 100%;
+    height: auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img.xy-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.lift-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.lift-button {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+.img.lift-img {
+    max-width: 100%;
+    height: auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img.lift-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.syringes-section {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 24px;
+    justify-content: center;
+}
+
+.syringes-upper,
+.syringes-lower {
+    flex: 1;
+    justify-content: center;
+    width: auto;
+}
+
+.syringes-upper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.syringes-upper-upper,
+.syringes-upper-lower {
+    flex: 1;
+    justify-content: center;
+}
+
+.syringes-lower {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.pull,
+.push {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.unit {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+
+input[type="number"] {
+    width: 4ch;
+    height: 2ch;
+    font-size: 1.6rem;
+}
+
+.syringes-img {
+    max-width: 100%;
+    height: auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.syringes-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.syringes-info {
+    display: grid;
+    grid-template-columns: auto 3ch auto;
+    font-size: 1.5rem;
+    font-weight: 700;
+    row-gap: 0.6rem;
+}
+
+.syringes-lower {
+    margin: 4px;
+}
+
+.aspirated-amount,
+.remaining-amount {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+
+.layout-lower {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-log {
+    grid-column: 2;
+    width: 100%;
+}
+
+
+
+#haltButton {
+    width: 180px;
+    height: 160px;
+    background-color: #ff0b0b;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+#haltButton:hover {
+    background-color: #8b2222;
+}
+
+#messageLog {
+    width: 100%;
+    resize: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    text-align: left;
+}
