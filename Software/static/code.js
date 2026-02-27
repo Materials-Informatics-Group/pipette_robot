@@ -124,7 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update spinbox limits after pulling liquid
     function updateSpinboxPull(value) {
-        pullSpinBox.value = 0.0;
         pullSpinBox.max = (Number(pullSpinBox.max) - value).toFixed(1);
         pushSpinBox.max = (Number(pushSpinBox.max) + value).toFixed(1);
     }
@@ -216,31 +215,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle manual input in spinboxes
     syringesInputs.forEach(box => {
-        let previousValue = 0.0;
-        let enterPushed = false;
-
-        // Store previous value on focus
-        box.addEventListener("focus", () => {
-            previousValue = box.value;
-            enterPushed = false;
-        });
-
-        // Confirm value on Enter key
         box.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
-
-                enterPushed = true;
                 clampInputValue(box);
                 box.blur();
-            };
+            }
         });
 
-        // Restore previous value if Enter was not pressed
         box.addEventListener("blur", () => {
-            if (!enterPushed) {
-                box.value = previousValue;
-            }
+            clampInputValue(box);
         });
     });
 
