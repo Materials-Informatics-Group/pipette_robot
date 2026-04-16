@@ -150,7 +150,11 @@ String Robot::fetch(Command cmd) {
 
             if (cmd.pip.dir == PipetteDirection::Pull) {
                 // Queue pull ticks
-                syringe_system_.requestTicks(SyringeDirection::Pull, ticks);
+                bool accepted = syringe_system_.requestTicks(SyringeDirection::Pull, ticks);
+                if (!accepted) {
+                    state_.type = WorkingType::Halting;
+                    return "Pull request rejected";
+                }
 
                 // Build log message in ml
                 fetched_command = "Pull ";
@@ -164,8 +168,12 @@ String Robot::fetch(Command cmd) {
                     fetched_command = "Push All";
                 }
                 else {
-                    // Queue push ticks
-                    syringe_system_.requestTicks(SyringeDirection::Push, ticks);
+                    // Queue push ticks                    
+                    bool accepted = syringe_system_.requestTicks(SyringeDirection::Push, ticks);
+                    if (!accepted) {
+                        state_.type = WorkingType::Halting;
+                        return "Push request rejected";
+                    }
 
                     // Build log message in ml
                     fetched_command = "Push ";
